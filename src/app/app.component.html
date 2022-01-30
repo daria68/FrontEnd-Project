@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+        <a class ="nav-link" *ngIf = "!_registerService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
+        <a class ="nav-link" *ngIf = "!_registerService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+        <a class="nav-link" style="cursor: pointer" *ngIf = "_registerService.loggedIn()" (click)="_registerService.logoutUser()">Logout</a>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
