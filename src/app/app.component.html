@@ -1,10 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+ 
+    <i class='fas fa-futbol' style='font-size:24px;color:rgb(245, 222, 244)'></i>
+ 
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav">
         <a class ="nav-link" *ngIf = "!_registerService.loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
         <a class ="nav-link" *ngIf = "!_registerService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
+        <a class ="nav-link" *ngIf = "_registerService.loggedIn()" routerLink="/home" routerLinkActive="active">About Us</a>
         <a class="nav-link" style="cursor: pointer" *ngIf = "_registerService.loggedIn()" (click)="_registerService.logoutUser()">Logout</a>
     </ul>
   </div>
 </nav>
+<!--This will be the child component-->
+<div class="shadow-lg p-3 mb-5 bg-white rounded"  *ngIf = "_registerService.loggedIn()">
+  <div class="card">
+    <div class="card-header">
+      <h4> Write something About You:</h4>
+    </div>
+    <div class="card-body">
+      <input type="text" class="form-control" [(ngModel)]="enterName" />
+      <br>
+      <div class="text-center">
+      <input type="button" value="Send" (click)="TransferData()" class="btn btn-dark float-right" style="text-align:center;">
+      </div>
+      <app-dashboard [parentData]="parentData" ></app-dashboard>
+    </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>

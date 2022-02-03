@@ -3,13 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './auth.guard';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
   {
+
     path:"",
-    redirectTo:"/login",
-    pathMatch:"full"
+    redirectTo:"/register",
+    pathMatch:"full"  
   },
   {
     path:"login",
@@ -22,9 +25,24 @@ const routes: Routes = [
   {
     path:"dashboard",
     component:DashboardComponent,
-    canActivate : [AuthGuard]
-  }
+    
+  },
 
+  {
+    path:"home",
+    component:HomeComponent,
+    canActivate : [AuthGuard]
+  },
+
+  {
+    path:"productlist",
+    component: HomeComponent
+  },
+
+  {
+    path:"product-details/:productId",
+    component: ProductDetailsComponent
+  }
 
 ];
 

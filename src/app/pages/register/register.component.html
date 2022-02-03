@@ -1,11 +1,18 @@
-<p>register works!</p>
-<div class="container">
-    <h2>Register</h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="shadow-lg p-3 mb-5 bg-white rounded" >
+  <h1 style="text-align:center;">Register</h1>
     <form #registerform="ngForm" (ngSubmit)="register()">
      
       <small class="alert-danger">{{message}}</small>
       <div class="form-group">
-        <label for="email">Email:</label>
+        <label for="email"><h4>Email</h4></label>
         <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" [(ngModel)]="userr.email" required
         pattern="\w+@[a-zA-z_]+?\.[a-zA-Z]{2,3}$"
         #email="ngModel"
@@ -17,33 +24,35 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="username">First name:</label>
+        <label for="username"><h4>First name</h4></label>
         <input type="text" class="form-control" placeholder="Enter firstname" name="firstName" [(ngModel)]="userr.firstName" required #firstName="ngModel"
         [class.is-invalid]="firstName.invalid && firstName.touched">
         <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required field</small>-->
         <small class="text-danger" [class.d-none]="firstName.valid|| firstName.untouched">Firstname is required field</small>
       </div>
       <div class="form-group">
-        <label for="username">Last name:</label>
+        <label for="username"><h4>Last name</h4></label>
         <input type="text" class="form-control" placeholder="Enter lastname" name="lastName" [(ngModel)]="userr.lastName" required #lastName="ngModel"
         [class.is-invalid]="lastName.invalid && lastName.touched">
         <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required field</small>-->
         <small class="text-danger" [class.d-none]="lastName.valid|| lastName.untouched">Lastname is required field</small>
       </div>
       <div class="form-group">
-        <label for="pwd">Password:</label>
+        <label for="pwd"><h4>Password</h4></label>
         <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" [(ngModel)]="userr.password" required #password="ngModel"
         [class.is-invalid]="password.invalid && password.touched">
         <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
       </div>
 
       <div class="form-group">
-        <label for="pwd">Confirm Password:</label>
+        <label for="pwd"><h4>Confirm Password</h4></label>
         <input type="password" class="form-control" id="pwd" placeholder="Enter confim password" name="cpassword" #cpassword="ngModel" (ngModel)="userr.password" required 
         [class.is-invalid]="cpassword.invalid && cpassword.touched">
         <small class="text-danger" [class.d-none]="(cpassword.value ==password.value) || cpassword.untouched">Confirm password and Password is required field</small>
       </div>
-      <button [disabled]="registerform.form.invalid" type="submit" class="btn btn-info">Register</button>
+      <div class="text-center">
+        <button [disabled]="registerform.form.invalid" type="submit" class="btn btn-dark float-right" style="text-align:center;">Register</button>
+      </div>
     </form>
-    <small class="float-right" [routerLink]="['/login']">>Login</small>
+    <small class="float-right" [routerLink]="['/login']"><h6>Already have an account? Sign in here</h6></small>
   </div> 

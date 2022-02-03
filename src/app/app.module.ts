@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { RegisterService } from './register.service';
 import { AuthGuard } from './auth.guard';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -18,14 +20,16 @@ import { AuthGuard } from './auth.guard';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [ RegisterService, AuthGuard],
   bootstrap: [AppComponent]

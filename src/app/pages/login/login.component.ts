@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
       data => {
         console.log("Response was received");
         localStorage.setItem('token',  JSON.stringify(data))
-        this._router.navigate(['/dashboard'])
+        this._router.navigate(['/home'])
       },
       error => {
         console.log("Exception has occured");

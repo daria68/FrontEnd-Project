@@ -26,11 +26,12 @@ export class RegisterComponent implements OnInit {
   register(){
 
     this._service.registerUserFromRemote(this.userr).subscribe(
+      
       data =>{
         console.log("response recive");
         localStorage.setItem('token', JSON.stringify(data))
         this.message="Register successful";
-        this._router.navigate(['/login']);
+        this._router.navigate(['/home']);
       },
       error =>{
         console.log("exception occured");
